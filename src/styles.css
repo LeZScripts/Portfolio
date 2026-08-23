@@ -400,6 +400,7 @@
     flex: 1 1 50%;
     max-width: 52%;
     position: relative;
+    z-index: 10;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -438,7 +439,7 @@
 
 .hero-profile-img {
     position: relative;
-    z-index: 1;
+    z-index: 11;
     height: 100%;
     width: auto;
     max-width: 100%;
@@ -2572,7 +2573,7 @@ body::before {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    z-index: 9990;
+    z-index: 1;
     background-image: radial-gradient(rgba(255, 95, 64, 0.95) 1.8px, transparent 1.8px);
     background-size: 24px 24px;
     background-attachment: fixed;
@@ -2738,4 +2739,551 @@ body::before {
     font-weight: 500;
     color: rgba(255, 255, 255, 0.92);
     letter-spacing: 0.04em;
+}
+
+/* Beyond Coding Pill Styling */
+.beyond-pill {
+    background: rgba(255, 95, 64, 0.12) !important;
+    border: 1px solid rgba(255, 95, 64, 0.4) !important;
+    color: #ff5f40 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em;
+    transition: all 0.25s ease;
+}
+
+.beyond-pill:hover,
+.beyond-pill.active {
+    background: #ff5f40 !important;
+    color: #0d120f !important;
+    box-shadow: 0 0 16px rgba(255, 95, 64, 0.5);
+}
+
+/* Beyond Coding Page Layout */
+.beyond-page-wrapper {
+    padding-top: 95px;
+    padding-bottom: 60px;
+    max-width: 1140px;
+    margin: 0 auto;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.beyond-body-split {
+    position: relative;
+    width: 100%;
+}
+
+.beyond-left-icon-bar {
+    position: fixed;
+    left: clamp(16px, 3vw, 36px);
+    top: 135px;
+    z-index: 990;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(12, 16, 14, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 16px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.beyond-cards-main {
+    width: 100%;
+    padding-left: 72px;
+}
+
+.beyond-card-full {
+    width: 100%;
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .beyond-body-split {
+        flex-direction: column;
+    }
+    .beyond-left-icon-bar {
+        position: static;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+.beyond-icon-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: rgba(255, 95, 64, 0.08);
+    border: 1px solid rgba(255, 95, 64, 0.3);
+    color: #ff5f40;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.beyond-icon-btn:hover {
+    background: #ff5f40;
+    color: #0b120e;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 95, 64, 0.4);
+}
+
+.beyond-icon-btn.active {
+    background: #ff5f40;
+    color: #0b120e;
+    border-color: #ff5f40;
+    box-shadow: 0 0 20px rgba(255, 95, 64, 0.6);
+}
+
+/* Trips & Travel Alternating Center Timeline */
+.travel-timeline {
+    position: relative;
+    margin-top: 36px;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Curvy Wavy SVG Line Track */
+.travel-timeline-svg-wrap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.travel-timeline-svg-path {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.travel-timeline-item {
+    position: relative;
+    width: 50%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+}
+
+.travel-timeline-item.left {
+    align-self: flex-start;
+    padding-right: 32px;
+    justify-content: flex-end;
+}
+
+.travel-timeline-item.right {
+    align-self: flex-end;
+    padding-left: 32px;
+    justify-content: flex-start;
+}
+
+/* Scroll Entrance Initial States */
+.travel-timeline-item.left .travel-timeline-card {
+    opacity: 0;
+    transform: translateX(-40px) scale(0.95);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.travel-timeline-item.right .travel-timeline-card {
+    opacity: 0;
+    transform: translateX(40px) scale(0.95);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.travel-timeline-item .travel-timeline-dot {
+    transform: translateY(-50%) scale(0);
+    opacity: 0;
+    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s, opacity 0.3s ease 0.15s;
+}
+
+.travel-timeline-item.left .travel-timeline-connector {
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 0.4s ease 0.25s;
+}
+
+.travel-timeline-item.right .travel-timeline-connector {
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.4s ease 0.25s;
+}
+
+/* Is-Visible Scroll Reveal Active States */
+.travel-timeline-item.is-visible .travel-timeline-card {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}
+
+.travel-timeline-item.is-visible .travel-timeline-dot {
+    transform: translateY(-50%) scale(1);
+    opacity: 1;
+}
+
+.travel-timeline-item.is-visible .travel-timeline-connector {
+    transform: scaleX(1);
+}
+
+/* Hover Effects after Entrance */
+.travel-timeline-item.is-visible.left .travel-timeline-card:hover {
+    transform: translateX(-4px) translateY(-3px) scale(1.01);
+}
+
+.travel-timeline-item.is-visible.right .travel-timeline-card:hover {
+    transform: translateX(4px) translateY(-3px) scale(1.01);
+}
+
+/* Center Node Dot & Connector Line */
+.travel-timeline-dot {
+    position: absolute;
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    background: #ff5f40;
+    border-radius: 50%;
+    z-index: 5;
+    box-shadow: 0 0 10px rgba(255, 95, 64, 0.9);
+}
+
+.travel-timeline-item.left .travel-timeline-dot {
+    right: -7px;
+}
+
+.travel-timeline-item.right .travel-timeline-dot {
+    left: -7px;
+}
+
+.travel-timeline-dot .dot-pulse {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 95, 64, 0.5);
+    animation: timelinePulse 2s infinite ease-out;
+}
+
+@keyframes timelinePulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2.2);
+        opacity: 0;
+    }
+}
+
+.travel-timeline-connector {
+    position: absolute;
+    top: 50%;
+    height: 2px;
+    background: rgba(255, 95, 64, 0.5);
+    z-index: 3;
+}
+
+.travel-timeline-item.left .travel-timeline-connector {
+    right: 0;
+    width: 32px;
+}
+
+.travel-timeline-item.right .travel-timeline-connector {
+    left: 0;
+    width: 32px;
+}
+
+/* Compact Timeline Card (Photo Side-by-Side with Details) */
+.travel-timeline-card {
+    max-width: 440px;
+    width: 100%;
+    background: rgba(16, 22, 18, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+.travel-timeline-card:hover {
+    border-color: rgba(255, 95, 64, 0.5);
+    box-shadow: 0 10px 26px rgba(255, 95, 64, 0.18);
+}
+
+.travel-timeline-item.left .travel-timeline-card:hover {
+    transform: translateX(-4px) translateY(-3px);
+}
+
+.travel-timeline-item.right .travel-timeline-card:hover {
+    transform: translateX(4px) translateY(-3px);
+}
+
+.travel-timeline-card-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    min-height: 140px;
+}
+
+.travel-img-wrap {
+    position: relative;
+    width: 140px;
+    min-width: 140px;
+    overflow: hidden;
+    background: #0b0f0d;
+}
+
+.travel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.travel-timeline-card:hover .travel-img {
+    transform: scale(1.08);
+}
+
+.travel-card-info {
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    justify-content: center;
+}
+
+.travel-card-header-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.travel-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    color: #ff5f40;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+}
+
+.travel-location-pill {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.06);
+    padding: 2px 8px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.travel-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.3;
+}
+
+.travel-desc {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.45;
+}
+
+/* Mobile Responsive adjustment */
+@media (max-width: 860px) {
+    .travel-timeline-svg-wrap {
+        display: none;
+    }
+    .travel-timeline::before {
+        content: '';
+        position: absolute;
+        left: 20px;
+        top: 0;
+        bottom: 0;
+        width: 0;
+        border-left: 2px dashed rgba(255, 95, 64, 0.45);
+        z-index: 1;
+    }
+    .travel-timeline-item {
+        width: 100%;
+        align-self: flex-start !important;
+        padding-left: 48px !important;
+        padding-right: 0 !important;
+    }
+    .travel-timeline-item .travel-timeline-dot {
+        left: 12px !important;
+        right: auto !important;
+    }
+    .travel-timeline-item.left .travel-timeline-card:hover,
+    .travel-timeline-item.right .travel-timeline-card:hover {
+        transform: translateY(-4px);
+    }
+}
+
+/* Lightbox Modal */
+.travel-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    animation: fadeIn 0.25s ease;
+}
+
+.travel-modal-content {
+    position: relative;
+    max-width: 840px;
+    width: 100%;
+    background: #0c120e;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 680px) {
+    .travel-modal-content {
+        flex-direction: row;
+        max-height: 80vh;
+    }
+    .travel-modal-img {
+        width: 55%;
+        object-fit: cover;
+        max-height: 80vh;
+    }
+    .travel-modal-info {
+        width: 45%;
+        padding: 28px;
+    }
+}
+
+.travel-modal-img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+}
+
+.travel-modal-info {
+    padding: 20px;
+}
+
+.travel-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.travel-modal-close:hover {
+    background: #ff5f40;
+    color: #0b120e;
+}
+
+.beyond-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.beyond-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.beyond-card {
+    background: rgba(12, 16, 14, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 28px;
+    backdrop-filter: blur(16px);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.beyond-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 95, 64, 0.45);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 24px rgba(255, 95, 64, 0.2);
+}
+
+.beyond-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.beyond-card-icon {
+    font-size: 28px;
+}
+
+.beyond-card-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: #ff5f40;
+    background: rgba(255, 95, 64, 0.1);
+    border: 1px solid rgba(255, 95, 64, 0.3);
+    padding: 4px 10px;
+    border-radius: 12px;
+    text-transform: uppercase;
+}
+
+.beyond-card-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.beyond-card-desc {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 20px;
+}
+
+.beyond-card-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 14px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.45);
 }

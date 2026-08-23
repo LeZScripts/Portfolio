@@ -220,6 +220,414 @@ function FloatingVibeWidget({ visible }) {
   );
 }
 
+function MusicIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+      <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z" />
+      <path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+    </svg>
+  );
+}
+
+function FilmIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
+      <line x1="7" y1="2" x2="7" y2="22" />
+      <line x1="17" y1="2" x2="17" y2="22" />
+      <line x1="2" y1="12" x2="22" y2="12" />
+      <line x1="2" y1="7" x2="7" y2="7" />
+      <line x1="2" y1="17" x2="7" y2="17" />
+      <line x1="17" y1="17" x2="22" y2="17" />
+      <line x1="17" y1="7" x2="22" y2="7" />
+    </svg>
+  );
+}
+
+function PlaneIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M22 2L11 13" />
+      <path d="M22 2L15 22L11 13L2 9L22 2Z" />
+    </svg>
+  );
+}
+
+const travelPhotos = [
+  {
+    id: 1,
+    title: "Lush Forest Trail & Canopy",
+    location: "Karnala Bird Sanctuary, Panvel",
+    tag: "NATURE & WILDLIFE",
+    img: "/travel/travel_12.jpg",
+    pngImg: "/travel/travel_12.png",
+    desc: "Immersed in dense green tree canopies and peaceful forest trails inside Karnala Bird Sanctuary. Stepping away from screens to reconnect with nature's quiet rhythm."
+  },
+  {
+    id: 2,
+    title: "Sunset Reflections at Dusk",
+    location: "Jewel of Navi Mumbai, Nerul",
+    tag: "TWILIGHT & LAKES",
+    img: "/travel/travel_11.jpg",
+    pngImg: "/travel/travel_11.png",
+    desc: "Pastel pink and purple twilight hues reflecting over calm waters at Jewel of Navi Mumbai. Capturing late-evening horizons and golden-hour stillness."
+  },
+  {
+    id: 3,
+    title: "Ancient Heritage & Stone Reliefs",
+    location: "Chhatrapati Shivaji Maharaj Vastu Sangrahalaya, Mumbai",
+    tag: "HERITAGE & MUSEUMS",
+    img: "/travel/travel_10.jpg",
+    pngImg: "/travel/travel_10.png",
+    desc: "Fascinated by historical craftsmanship and stone reliefs showcasing ancient Indian mythology, architecture, and sculpture at Chhatrapati Shivaji Maharaj Vastu Sangrahalaya."
+  },
+  {
+    id: 4,
+    title: "Siddhivinayak Temple Offering",
+    location: "Shree Siddhivinayak Temple, Mumbai",
+    tag: "URBAN & SPIRITUAL",
+    img: "/travel/travel_9.jpg",
+    pngImg: "/travel/travel_9.png",
+    desc: "Red hibiscus flower offering with Shree Siddhivinayak Temple and Mumbai's skyline in the background. A moment of spiritual reverence in the heart of the city."
+  },
+  {
+    id: 5,
+    title: "Ganpatipule Temple at Night",
+    location: "Ganpatipule Temple, Ratnagiri",
+    tag: "COASTAL & SACRED",
+    img: "/travel/travel_8.jpg",
+    pngImg: "/travel/travel_8.png",
+    desc: "Warm night illumination highlighting the majestic Deepastambha pillars and traditional Konkan temple architecture at Ganpatipule Temple."
+  },
+  {
+    id: 6,
+    title: "Konkan Backwaters & Palms",
+    location: "Somewhere in Konkan",
+    tag: "COASTAL ESCAPES",
+    img: "/travel/travel_7.jpg",
+    pngImg: "/travel/travel_7.png",
+    desc: "Tall coconut palms towering over serene backwaters with a white island temple in the distance. Embracing the tranquil beauty of the Konkan coast."
+  },
+  {
+    id: 7,
+    title: "Grishneshwar Jyotirlinga Temple",
+    location: "Grishneshwar Temple, Ellora",
+    tag: "ANCIENT JYOTIRLINGA",
+    img: "/travel/travel_6.jpg",
+    pngImg: "/travel/travel_6.png",
+    desc: "Majestic red stone carving and ancient shikhara architecture of Grishneshwar Temple, one of the 12 sacred Jyotirlinga shrines."
+  },
+  {
+    id: 8,
+    title: "Shri Swaminarayan Temple",
+    location: "Shri Swaminarayan Temple, Jalgaon",
+    tag: "TEMPLE ARCHITECTURE",
+    img: "/travel/travel_5.jpg",
+    pngImg: "/travel/travel_5.png",
+    desc: "Intricately carved pink stone mandir architecture with carved spires and elephant statues at Shri Swaminarayan Temple in Jalgaon."
+  },
+  {
+    id: 9,
+    title: "Satpura Forest Drive",
+    location: "Somewhere in Satpura Ranges",
+    tag: "MOUNTAIN ROAD TRIPS",
+    img: "/travel/travel_4.jpg",
+    pngImg: "/travel/travel_4.png",
+    desc: "Winding asphalt road cutting through lush green forest canopy under clear skies in the Satpura Mountain Ranges."
+  },
+  {
+    id: 10,
+    title: "Golden Hour Ocean Sunset",
+    location: "Marine Lines, Mumbai",
+    tag: "SUNSET & COASTLINE",
+    img: "/travel/travel_3.jpg",
+    pngImg: "/travel/travel_3.png",
+    desc: "Serene golden sun setting over Arabian Sea waters with iconic tetrapod wave breakers along Queen's Necklace at Marine Lines."
+  },
+  {
+    id: 11,
+    title: "South Mumbai Heritage Street",
+    location: "South Mumbai Heritage Corridor",
+    tag: "HERITAGE & CITY",
+    img: "/travel/travel_2.jpg",
+    pngImg: "/travel/travel_2.png",
+    desc: "Bustling aerial street view of South Mumbai's heritage corridor featuring iconic black & yellow taxis, Victorian Gothic architecture, and leafy avenues."
+  },
+  {
+    id: 12,
+    title: "Royal Rajput Palace & Courtyard",
+    location: "City Palace, Jaipur, Rajasthan",
+    tag: "ROYAL HERITAGE",
+    img: "/travel/travel_1.jpg",
+    pngImg: "/travel/travel_1.png",
+    desc: "Exquisite multi-tiered arches, delicate latticework, and royal courtyards of Jaipur's historic palace architecture."
+  }
+];
+
+const generateWavyPath = (count) => {
+  if (count <= 0) return "";
+  const step = 100 / count;
+  let path = `M 50 0`;
+  for (let i = 0; i < count; i++) {
+    const endY = (i + 1) * step;
+    const midY = (i + 0.5) * step;
+    const curveX = i % 2 === 0 ? 25 : 75;
+    path += ` Q ${curveX} ${midY}, 50 ${endY}`;
+  }
+  return path;
+};
+
+function BeyondCodingPage() {
+  const [activeSection, setActiveSection] = useState('music');
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const musicEl = document.getElementById('section-music');
+      const moviesEl = document.getElementById('section-movies');
+      const travelEl = document.getElementById('section-travel');
+
+      const scrollPos = window.scrollY + 250;
+
+      if (travelEl && scrollPos >= travelEl.offsetTop) {
+        setActiveSection('travel');
+      } else if (moviesEl && scrollPos >= moviesEl.offsetTop) {
+        setActiveSection('movies');
+      } else if (musicEl) {
+        setActiveSection('music');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // Scroll reveal observer for travel timeline items
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -50px 0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, observerOptions);
+
+    const timelineItems = document.querySelectorAll('.travel-timeline-item');
+    timelineItems.forEach((item) => observer.observe(item));
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      timelineItems.forEach((item) => observer.unobserve(item));
+    };
+  }, []);
+
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <div className="beyond-page-wrapper">
+      <div className="beyond-body-split">
+        <aside className="beyond-left-icon-bar">
+          <button
+            className={`beyond-icon-btn ${activeSection === 'music' ? 'active' : ''}`}
+            onClick={() => scrollToSection('section-music')}
+            title="Music & Vibe"
+            aria-label="Music & Vibe"
+          >
+            <MusicIcon />
+          </button>
+          <button
+            className={`beyond-icon-btn ${activeSection === 'movies' ? 'active' : ''}`}
+            onClick={() => scrollToSection('section-movies')}
+            title="Movies & Shows"
+            aria-label="Movies & Shows"
+          >
+            <FilmIcon />
+          </button>
+          <button
+            className={`beyond-icon-btn ${activeSection === 'travel' ? 'active' : ''}`}
+            onClick={() => scrollToSection('section-travel')}
+            title="Trips & Travel"
+            aria-label="Trips & Travel"
+          >
+            <PlaneIcon />
+          </button>
+        </aside>
+
+        <main className="beyond-cards-main" style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+          {/* SECTION 1: MUSIC & VIBE */}
+          <div
+            className="vibe-card"
+            style={{ width: '100%', maxWidth: '100%' }}
+            id="section-music"
+            onMouseMove={(e) => {
+              document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+              document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+            }}
+          >
+            <div className="vibe-header">
+              <div className="vibe-brand">
+                <span className="spotify-mark">●</span>
+                <span className="vibe-title-text" style={{ color: '#ffffff', fontWeight: 600, fontSize: '13px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                  <MusicIcon />
+                  Afterglow — LeZScripts FM
+                </span>
+              </div>
+              <div className="vibe-controls">
+                <div className="vibe-live-badge">
+                  <span className="vibe-live-dot">●</span>
+                  <span>LIVE</span>
+                  <div className="audio-wave">
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="vibe-content">
+              <div>
+                <h2><RandomLetterReveal text="Vibe" /><br /><em><RandomLetterReveal text="with me." /></em></h2>
+                <p>Late-night builds, clean commits, and a little extra bass.</p>
+              </div>
+            </div>
+            <div className="spotify-player-wrapper">
+              <iframe
+                className="spotify-player"
+                src="https://open.spotify.com/embed/playlist/1HRvFDOzbfysgi5g5lVaoz?utm_source=generator&theme=0"
+                title="Afterglow — playlist by LeZ"
+                loading="lazy"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              />
+            </div>
+          </div>
+
+          {/* SECTION 2: MOVIES & SHOWS
+          <div className="beyond-card beyond-card-full" id="section-movies">
+            <div className="beyond-card-header">
+              <span className="beyond-card-icon-wrap" style={{ color: '#ff5f40', display: 'inline-flex', alignItems: 'center' }}>
+                <FilmIcon />
+              </span>
+              <span className="beyond-card-tag">CINEMATOGRAPHY</span>
+            </div>
+            <h3 className="beyond-card-title">Movies &amp; Shows</h3>
+            <p className="beyond-card-desc">Drawn to futuristic worldbuilding, dark tech thrillers, and complex character arcs. Key favorites include Cyberpunk: Edgerunners, Interstellar, Mr. Robot, and Blade Runner 2049.</p>
+            <div className="beyond-card-footer">
+              <span>Favorites &amp; Currently Watching</span>
+            </div>
+          </div> */}
+
+          {/* SECTION 3: TRIPS & TRAVEL */}
+          <div className="beyond-card beyond-card-full" id="section-travel">
+            <div className="beyond-card-header">
+              <span className="beyond-card-icon-wrap" style={{ color: '#ff5f40', display: 'inline-flex', alignItems: 'center' }}>
+                <PlaneIcon />
+              </span>
+              <span className="beyond-card-tag">EXPLORATION &amp; JOURNEYS</span>
+            </div>
+            <h3 className="beyond-card-title">Trips &amp; Travel</h3>
+            <p className="beyond-card-desc">A curated look into my travels — from serene forest walks and dusk lakes to ancient heritage exhibits and illuminated sacred architecture.</p>
+
+            <div className="travel-timeline">
+              <div className="travel-timeline-svg-wrap">
+                <svg className="travel-timeline-svg-path" viewBox="0 0 100 100" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="wavyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#ff5f40" stopOpacity="0.8" />
+                      <stop offset="50%" stopColor="#ff8c42" stopOpacity="0.9" />
+                      <stop offset="100%" stopColor="#ff5f40" stopOpacity="0.8" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d={generateWavyPath(travelPhotos.length)}
+                    fill="none"
+                    stroke="url(#wavyGrad)"
+                    strokeWidth="1.2"
+                  />
+                </svg>
+              </div>
+              {travelPhotos.map((photo, index) => {
+                const isLeft = index % 2 === 0;
+                return (
+                  <div key={photo.id} className={`travel-timeline-item ${isLeft ? 'left' : 'right'}`}>
+                    <div className="travel-timeline-dot">
+                      <span className="dot-pulse" />
+                    </div>
+                    <div className="travel-timeline-connector" />
+
+                    <div className="travel-timeline-card" onClick={() => setSelectedPhoto(photo)}>
+                      <div className="travel-timeline-card-inner">
+                        <div className="travel-img-wrap">
+                          <img
+                            src={photo.img}
+                            alt={photo.title}
+                            className="travel-img"
+                            loading="lazy"
+                            onError={(e) => {
+                              if (e.target.src !== photo.pngImg) {
+                                e.target.src = photo.pngImg;
+                              }
+                            }}
+                          />
+                        </div>
+                        <div className="travel-card-info">
+                          <div className="travel-card-header-row">
+                            <span className="travel-tag">{photo.tag}</span>
+                            <span className="travel-location-pill">📍 {photo.location}</span>
+                          </div>
+                          <h4 className="travel-title">{photo.title}</h4>
+                          <p className="travel-desc">{photo.desc}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="beyond-card-footer" style={{ marginTop: '24px' }}>
+            </div>
+          </div>
+        </main>
+      </div>
+
+      {/* LIGHTBOX MODAL */}
+      {selectedPhoto && (
+        <div className="travel-modal-backdrop" onClick={() => setSelectedPhoto(null)}>
+          <div className="travel-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="travel-modal-close" onClick={() => setSelectedPhoto(null)}>✕</button>
+            <img
+              src={selectedPhoto.img}
+              alt={selectedPhoto.title}
+              className="travel-modal-img"
+              onError={(e) => {
+                if (e.target.src !== selectedPhoto.pngImg) {
+                  e.target.src = selectedPhoto.pngImg;
+                }
+              }}
+            />
+            <div className="travel-modal-info">
+              <span className="travel-tag">{selectedPhoto.tag}</span>
+              <h3 style={{ fontSize: '20px', margin: '8px 0', color: '#fff' }}>{selectedPhoto.title}</h3>
+              <p className="travel-location" style={{ fontSize: '13px', color: '#ff5f40', marginBottom: '12px' }}>📍 {selectedPhoto.location}</p>
+              <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.8)', lineHeight: '1.6' }}>{selectedPhoto.desc}</p>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function App() {
   const [welcomeIndex, setWelcomeIndex] = useState(0);
   const [welcomeLeaving, setWelcomeLeaving] = useState(false);
@@ -228,6 +636,7 @@ function App() {
   const [sent, setSent] = useState(false);
   const [activeSection, setActiveSection] = useState('intro');
   const [scrollOffset, setScrollOffset] = useState(0);
+  const [currentPage, setCurrentPage] = useState('home');
 
   const filteredProjects = filter === 'All' ? projects : projects.filter((project) => project.tags.includes(filter));
 
@@ -324,6 +733,7 @@ function App() {
   }, []);
 
   useEffect(() => {
+    if (currentPage !== 'home') return;
     const revealItems = document.querySelectorAll('.scroll-reveal');
     if (!('IntersectionObserver' in window)) {
       revealItems.forEach((item) => item.classList.add('is-visible'));
@@ -335,10 +745,13 @@ function App() {
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.14 });
+      }, { threshold: 0.1 });
       revealItems.forEach((item) => observer.observe(item));
+      return () => observer.disconnect();
     }
+  }, [currentPage]);
 
+  useEffect(() => {
     const projectCards = document.querySelectorAll('.project-card');
     const cardObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -372,7 +785,7 @@ function App() {
       cardObserver.disconnect();
       window.removeEventListener('scroll', handleScrollHorizontal);
     };
-  }, [filter]);
+  }, [filter, currentPage]);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -408,17 +821,37 @@ function App() {
         <div className="nav-divider" />
 
         <nav className="nav-links-pill" aria-label="Main navigation">
-          <a href="#intro" className={`nav-pill ${activeSection === 'intro' ? 'active' : ''}`}>INTRO</a>
-          <a href="#about" className={`nav-pill ${activeSection === 'about' ? 'active' : ''}`}>ABOUT</a>
-          <a href="#skills" className={`nav-pill ${activeSection === 'skills' ? 'active' : ''}`}>SKILLS</a>
-          <a href="#work" className={`nav-pill ${activeSection === 'work' ? 'active' : ''}`}>WORK</a>
-          <a href="#contact" className={`nav-pill ${activeSection === 'contact' ? 'active' : ''}`}>CONTACT</a>
-          <a href="#vibe" className={`nav-pill ${activeSection === 'vibe' ? 'active' : ''}`}>VIBE</a>
+          {currentPage === 'home' ? (
+            <>
+              <a href="#intro" className={`nav-pill ${activeSection === 'intro' ? 'active' : ''}`}>INTRO</a>
+              <a href="#about" className={`nav-pill ${activeSection === 'about' ? 'active' : ''}`}>ABOUT</a>
+              <a href="#skills" className={`nav-pill ${activeSection === 'skills' ? 'active' : ''}`}>SKILLS</a>
+              <a href="#work" className={`nav-pill ${activeSection === 'work' ? 'active' : ''}`}>WORK</a>
+              <a href="#contact" className={`nav-pill ${activeSection === 'contact' ? 'active' : ''}`}>CONTACT</a>
+              <button
+                onClick={() => { setCurrentPage('beyond'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                className="nav-pill beyond-pill"
+              >
+                UNPLUGGED
+              </button>
+            </>
+          ) : (
+            <button
+              onClick={() => { setCurrentPage('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              className="nav-pill beyond-pill active"
+            >
+              ← BACK TO PORTFOLIO
+            </button>
+          )}
         </nav>
       </header>
 
       <main id="top">
-        <section className="hero section-pad scroll-reveal" id="intro">
+        {currentPage === 'beyond' ? (
+          <BeyondCodingPage />
+        ) : (
+          <>
+            <section className="hero section-pad scroll-reveal" id="intro">
           <div className="hero-main">
             <div className="hero-headline-wrap">
               <h1>I build <em>what's next.</em><br /><span className="hero-identity">LeZScripts / Lekhit Zambre</span></h1>
@@ -681,52 +1114,10 @@ function App() {
             </form>
           </div>
         </section>
-
-        <section className="vibe section-pad scroll-reveal" id="vibe">
-          <div
-            className="vibe-card"
-            onMouseMove={(e) => {
-              document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
-              document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
-            }}
-          >
-            <div className="vibe-header">
-              <div className="vibe-brand">
-                <span className="spotify-mark">●</span> Afterglow — LeZScripts FM
-              </div>
-              <div className="vibe-controls">
-                <div className="vibe-live-badge">
-                  <span className="vibe-live-dot">●</span>
-                  <span>LIVE</span>
-                  <div className="audio-wave">
-                    <span />
-                    <span />
-                    <span />
-                    <span />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="vibe-content">
-              <div>
-                <h2><RandomLetterReveal text="Vibe" /><br /><em><RandomLetterReveal text="with me." /></em></h2>
-                <p>Late-night builds, clean commits, and a little extra bass.</p>
-              </div>
-            </div>
-            <div className="spotify-player-wrapper">
-              <iframe
-                className="spotify-player"
-                src="https://open.spotify.com/embed/playlist/1HRvFDOzbfysgi5g5lVaoz?utm_source=generator&theme=0"
-                title="Afterglow — playlist by LeZ"
-                loading="lazy"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              />
-            </div>
-          </div>
-        </section>
+          </>
+        )}
       </main>
       <footer className="footer section-pad scroll-reveal"><span>© 2026 LeZScripts / Lekhit Zambre</span><div><a href="#top">Back to top <Arrow direction="left" /></a></div></footer>
-      <FloatingVibeWidget visible={scrollOffset > 300 && activeSection !== 'vibe'} />
     </div>
   );
 }

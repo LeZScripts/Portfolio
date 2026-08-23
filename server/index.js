@@ -16,6 +16,50 @@ try {
     fs.mkdirSync(publicDir, { recursive: true });
   }
 
+  const travelDir = path.join(publicDir, 'travel');
+  if (!fs.existsSync(travelDir)) {
+    fs.mkdirSync(travelDir, { recursive: true });
+  }
+
+  const tempMediaDir = path.join(brainDir, '.tempmediaStorage');
+
+  let allMediaFiles = [];
+
+  if (fs.existsSync(brainDir)) {
+    fs.readdirSync(brainDir).forEach(f => {
+      if (f.startsWith('media_') || f.startsWith('media__')) {
+        const full = path.join(brainDir, f);
+        try {
+          const stat = fs.statSync(full);
+          if (stat.isFile()) allMediaFiles.push({ path: full, time: stat.mtimeMs, name: f });
+        } catch (err) {}
+      }
+    });
+  }
+
+  if (fs.existsSync(tempMediaDir)) {
+    fs.readdirSync(tempMediaDir).forEach(f => {
+      const full = path.join(tempMediaDir, f);
+      try {
+        const stat = fs.statSync(full);
+        if (stat.isFile()) allMediaFiles.push({ path: full, time: stat.mtimeMs, name: f });
+      } catch (err) {}
+    });
+  }
+
+  allMediaFiles.sort((a, b) => b.time - a.time);
+
+  console.log('=== LATEST 10 MEDIA FILES FOUND ===');
+  allMediaFiles.slice(0, 10).forEach(m => console.log(m.name, new Date(m.time).toISOString()));
+
+  const latestPhotos = allMediaFiles.slice(0, 25);
+  latestPhotos.forEach((item, index) => {
+    const ext = path.extname(item.name) || '.png';
+    const dest = path.join(travelDir, `travel_${index + 1}${ext}`);
+    fs.copyFileSync(item.path, dest);
+    console.log(`Copied ${item.name} -> travel_${index + 1}${ext}`);
+  });
+
   const assets = [
     { src: path.join(brainDir, 'media__1787465950415.png'), dest: path.join(publicDir, 'profile.png') },
     { src: path.join(brainDir, 'media__1787470371683.png'), dest: path.join(publicDir, 'logo.png') },
