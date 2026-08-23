@@ -462,7 +462,7 @@ function BeyondCodingPage() {
           </button>
         </aside>
 
-        <main className="beyond-cards-main" style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+        <main className="beyond-cards-main" style={{ display: 'flex', flexDirection: 'column', gap: '140px' }}>
           {/* SECTION 1: MUSIC & VIBE */}
           <div
             className="vibe-card"
@@ -528,14 +528,16 @@ function BeyondCodingPage() {
 
           {/* SECTION 3: TRIPS & TRAVEL */}
           <div className="beyond-card beyond-card-full" id="section-travel">
-            <div className="beyond-card-header">
-              <span className="beyond-card-icon-wrap" style={{ color: '#ff5f40', display: 'inline-flex', alignItems: 'center' }}>
-                <PlaneIcon />
+            <div className="travel-section-header">
+              <span className="travel-section-eyebrow">
+                <PlaneIcon /> EXPLORATION &amp; JOURNEYS
               </span>
-              <span className="beyond-card-tag">EXPLORATION &amp; JOURNEYS</span>
+              <h2 className="travel-section-title">Trips &amp; <span className="title-accent">Travel</span></h2>
+              <div className="travel-section-line" />
+              <p className="travel-section-desc">
+                A curated look into my travels — from serene forest walks and dusk lakes to ancient heritage exhibits and illuminated sacred architecture.
+              </p>
             </div>
-            <h3 className="beyond-card-title">Trips &amp; Travel</h3>
-            <p className="beyond-card-desc">A curated look into my travels — from serene forest walks and dusk lakes to ancient heritage exhibits and illuminated sacred architecture.</p>
 
             <div className="travel-timeline">
               <div className="travel-timeline-svg-wrap">
