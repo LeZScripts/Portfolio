@@ -180,6 +180,46 @@ const skillCategories = [
   }
 ];
 
+function FloatingVibeWidget({ visible }) {
+  if (!visible) return null;
+
+  const scrollToVibe = () => {
+    const vibeEl = document.getElementById('vibe');
+    if (vibeEl) {
+      vibeEl.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <div 
+      className="floating-vibe-widget"
+      onClick={scrollToVibe}
+      title="Currently Vibing — Click to jump to music player"
+    >
+      <div className="vinyl-disc-container">
+        <div className="vinyl-disc spinning">
+          <div className="vinyl-groove" />
+          <div className="vinyl-center-label">
+            <span className="vinyl-dot" />
+          </div>
+        </div>
+        <div className="vinyl-equalizer">
+          <span />
+          <span />
+          <span />
+        </div>
+      </div>
+      <div className="vibing-text-container">
+        <div className="vibing-badge">
+          <span className="vibing-dot">●</span>
+          <span className="vibing-tag">Vibing</span>
+        </div>
+        <span className="vibing-song-name">Afterglow</span>
+      </div>
+    </div>
+  );
+}
+
 function App() {
   const [welcomeIndex, setWelcomeIndex] = useState(0);
   const [welcomeLeaving, setWelcomeLeaving] = useState(false);
@@ -643,10 +683,16 @@ function App() {
         </section>
 
         <section className="vibe section-pad scroll-reveal" id="vibe">
-          <div className="vibe-card">
+          <div
+            className="vibe-card"
+            onMouseMove={(e) => {
+              document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+              document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+            }}
+          >
             <div className="vibe-header">
               <div className="vibe-brand">
-                <span className="spotify-mark">●</span> LeZScripts FM
+                <span className="spotify-mark">●</span> Afterglow — LeZScripts FM
               </div>
               <div className="vibe-controls">
                 <div className="vibe-live-badge">
@@ -667,17 +713,20 @@ function App() {
                 <p>Late-night builds, clean commits, and a little extra bass.</p>
               </div>
             </div>
-            <iframe
-              className="spotify-player"
-              src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator&theme=0"
-              title="LeZScripts FM Spotify playlist"
-              loading="lazy"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            />
+            <div className="spotify-player-wrapper">
+              <iframe
+                className="spotify-player"
+                src="https://open.spotify.com/embed/playlist/1HRvFDOzbfysgi5g5lVaoz?utm_source=generator&theme=0"
+                title="Afterglow — playlist by LeZ"
+                loading="lazy"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              />
+            </div>
           </div>
         </section>
       </main>
       <footer className="footer section-pad scroll-reveal"><span>© 2026 LeZScripts / Lekhit Zambre</span><div><a href="#top">Back to top <Arrow direction="left" /></a></div></footer>
+      <FloatingVibeWidget visible={scrollOffset > 300 && activeSection !== 'vibe'} />
     </div>
   );
 }
