@@ -462,7 +462,7 @@ function BeyondCodingPage() {
           </button>
         </aside>
 
-        <main className="beyond-cards-main" style={{ display: 'flex', flexDirection: 'column', gap: '140px' }}>
+        <main className="beyond-cards-main" style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
           {/* SECTION 1: MUSIC & VIBE */}
           <div
             className="vibe-card"
