@@ -2069,11 +2069,68 @@ h2 {
 }
 
 .contact-heading p {
-    max-width: 360px;
-    line-height: 1.5;
+    max-width: 380px;
+    line-height: 1.55;
     color: var(--muted);
     font-size: 14px;
-    margin-bottom: 0;
+    margin-bottom: 24px;
+}
+
+.connect-social-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.connect-label {
+    font: 600 11px 'DM Mono', monospace;
+    color: #ff5f40;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.social-pill-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 420px;
+}
+
+.social-pill-item {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(14, 20, 16, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #ffffff !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    backdrop-filter: blur(12px);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.social-pill-item.priority-high {
+    border-color: rgba(255, 95, 64, 0.4);
+    background: rgba(255, 95, 64, 0.1);
+}
+
+.social-pill-item:hover {
+    background: #ff5f40;
+    border-color: #ff5f40;
+    color: #ffffff !important;
+    transform: translateY(-4px) scale(1.12);
+    box-shadow: 0 10px 28px rgba(255, 95, 64, 0.55);
+}
+
+.social-pill-item svg {
+    transition: transform 0.25s ease;
+}
+
+.social-pill-item:hover svg {
+    transform: scale(1.15);
 }
 
 .contact-card-window {
