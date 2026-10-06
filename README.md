@@ -1,4 +1,4 @@
-# Nova Chen portfolio
+#portfolio
 
 A MERN portfolio starter with a React/Vite frontend and Express/Mongoose contact API.
 
